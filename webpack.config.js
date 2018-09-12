@@ -22,7 +22,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -32,11 +32,16 @@ module.exports = {
         }
       },
       {
-        test: /\.html$/,
-        loader: "html-loader"
+        test: /\.ejs$/,
+        loader: ["html-loader", 'ejs-html-loader']
       }
     ]
   },
   devtool: 'source-map',
-  plugins: [new HtmlWebpackPlugin({ template: "src/html/index.html" })]
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: './index.html',
+      template: "./src/html/index.ejs"
+    })
+  ]
 };
