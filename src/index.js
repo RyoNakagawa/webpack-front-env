@@ -1,5 +1,3 @@
-import './index.scss';
+import './stylesheets/index.scss';
+import './javascripts/index.js';
 
-'use strict';
-
-document.write("Hello webpack");
